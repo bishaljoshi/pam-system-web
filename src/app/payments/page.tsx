@@ -30,7 +30,11 @@ export default function PaymentsPage() {
       header: 'Account Name',
       render: (_: unknown, row: Payment) => <span>{row.account?.accountName || '—'}</span>,
     },
-    { key: 'amount', header: 'Amount' },
+    {
+      key: 'amount',
+      header: 'Amount',
+      render: (value: number) => <span className="text-blue-600 font-semibold">₹ {value}</span>,
+    },
     {
       key: 'paymentDate',
       header: 'Payment Date',

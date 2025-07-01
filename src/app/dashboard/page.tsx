@@ -32,7 +32,11 @@ export default function DashboardPage() {
       header: 'Account Name',
       render: (_: unknown, row: Payment) => <span>{row.account?.accountName || '—'}</span>,
     },
-    { key: 'amount', header: 'Amount' },
+    {
+      key: 'amount',
+      header: 'Amount',
+      render: (value: number) => <span className="text-blue-600 font-semibold">₹ {value}</span>,
+    },
     {
       key: 'paymentDate',
       header: 'Payment Date',
@@ -85,7 +89,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card title="Total Accounts" value={totalAccounts} color="blue"/>
         <Card title="Total Payments" value={totalPayments} color="green"/>
-        <Card title="Total Paid" value={totalAmountPaid} color="purple" />
+        <Card title="Total Paid" value={`₹ ${totalAmountPaid}`} color="purple" />
       </div>
       
       {/* Payments Table */}
