@@ -26,7 +26,6 @@ export default function PaymentForm({ accountId, paymentId, onSuccess }: Payment
         return res.json();
       })
       .then(data => {
-        console.log('Fetched payment data:', data);
         data = {
           ...data,
           paymentDate: data.paymentDate.split('T')[0]
@@ -44,7 +43,6 @@ export default function PaymentForm({ accountId, paymentId, onSuccess }: Payment
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    console.log({ name, value })
     setForm({ ...form, [name]: value });
   };
 
