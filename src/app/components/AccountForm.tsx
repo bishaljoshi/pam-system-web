@@ -102,6 +102,7 @@ const AccountForm = ({ accountId, onSuccess }: AccountFormProps) => {
           type="email"
           name="email"
           value={form.email}
+          disabled={!!accountId} // disable email if editing
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded-md text-black"
           placeholder="e.g. john@example.com"
